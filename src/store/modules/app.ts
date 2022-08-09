@@ -1,7 +1,19 @@
-/*
- * @Author: Betty.Gao
- * @Date: 2022-08-09 14:45:57
- * @LastEditors: Betty.Gao
- * @LastEditTime: 2022-08-09 14:45:57
- * @Description: 
- */
+import { defineStore } from "pinia";
+
+export const useAppstore = defineStore({
+    id: 'app-store',
+    state: () => ({
+        test: '仓库测试值',
+    }),
+
+    getters: {
+        getTest(): string {
+            return this.test
+        }
+    },
+    actions: {
+        changeVal() {
+            this.test = '改变值：14'
+        }       
+    }
+})
