@@ -1,8 +1,14 @@
-import type { App } from 'vue'
-import { createPinia } from 'pinia'
+/*
+ * @Author: Betty.Gao
+ * @Date: 2022-08-09 14:45:57
+ * @LastEditors: Betty.Gao
+ * @LastEditTime: 2022-08-16 10:41:59
+ * @Description: store主模块
+ */
+import useUserStore from './modules/user'
 
-const store = createPinia()
-
-export function setupStore(app: App<Element>) {
-  app.use(store)
+export default function useStore() {
+  return {
+    userStore: useUserStore() // 用户信息
+  }
 }

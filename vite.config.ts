@@ -2,7 +2,7 @@
  * @Author: Betty.Gao
  * @Date: 2022-07-08 18:30:46
  * @LastEditors: Betty.Gao
- * @LastEditTime: 2022-08-09 17:57:38
+ * @LastEditTime: 2022-08-10 17:10:08
  * @Description: vite配置文件
  */
 import { defineConfig } from 'vite'
@@ -22,7 +22,7 @@ export default defineConfig({
   // 开发服务器配置
   server: {
     host: '0.0.0.0',
-    port: 8080,
+    port: 8866,
     // 请求代理
     proxy: {
       // 个人习惯，这里就用/dev作为前缀了

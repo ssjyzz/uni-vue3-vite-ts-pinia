@@ -3,22 +3,18 @@
     {{ test }}
     <u-avatar :src="src"></u-avatar>
     <u-top-tips ref="uTips"></u-top-tips>
-    <u-button type="primary" shape="square" @click="handleClick">乌啼</u-button>
+    <u-button type="primary" shape="square">乌啼</u-button>
   </view>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useAppstore } from '@/store/modules/app'
+// import { computed } from 'vue'
+import useStore from '@/store'
 
-const appStore = useAppstore()
-const test = computed(() => {
-  return appStore.getTest
-})
+const { userStore } = useStore()
+
 const src = '/static/logo.png'
-function handleClick() {
-  appStore.changeVal()
-}
+const test = userStore.name
 </script>
 
 <style lang="scss">
