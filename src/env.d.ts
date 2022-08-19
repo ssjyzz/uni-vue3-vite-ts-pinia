@@ -6,3 +6,11 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
+
+declare module 'vk-uview-ui';
+
+// declare const window: Window & { WeixinJSBridge: any, WVJBCallbacks: any };
+
+// declare var Window {
+//     PLATFROM_CONFIG: any
+// }

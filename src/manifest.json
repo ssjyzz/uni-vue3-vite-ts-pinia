@@ -1,6 +1,6 @@
 {
     "name": "hello",
-    "appid": "__UNI__4DCD124",
+    "appid": "wx0f8d1ca4f4fb2f5b",
     "description": "",
     "versionName": "1.0.0",
     "versionCode": "100",
@@ -50,7 +50,7 @@
     "quickapp": {},
     /* 小程序特有相关 */
     "mp-weixin": {
-        "appid": "wx435a39e391de2067",
+        "appid": "wx0f8d1ca4f4fb2f5b",
         "setting": {
             "urlCheck": false
         },

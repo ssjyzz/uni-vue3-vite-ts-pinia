@@ -1,18 +1,41 @@
 /*
  * @Author: Betty.Gao
- * @Date: 2022-08-09 14:45:57
+ * @Date: 2022-08-18 11:21:35
  * @LastEditors: Betty.Gao
- * @LastEditTime: 2022-08-16 10:42:17
- * @Description: store用户信息
+ * @LastEditTime: 2022-08-19 17:50:24
+ * @Description: uers
  */
 import { defineStore } from 'pinia'
 
-const useUserStore = defineStore('user', {
+export const useUserStore = defineStore('userInfo', {
   state: () => {
+    'users'
+
     return {
-      name: '雅儿贝德',
-      age: 100
+      userName: '懒散的无名酱',
+      avatarUrl:
+        'https://thirdwx.qlogo.cn/mmopen/vi_32/POgEwh4mIHO4nibH0KlMECNjjGxQUq24ZEaGT4poC6icRiccVGKSyXwibcPq4BWmiaIGuG1icwxaQX6grC9VemZoJ8rg/132',
+      accessToken: '这里是token - -!'
     }
+  },
+  getters: {
+    getavAtarUrl: (state) => {
+      return state.avatarUrl
+    },
+    getToken: (state) => {
+      return state.accessToken
+    }
+  },
+  actions: {
+    updeteAvatarUrl(value: string) {
+      this.avatarUrl = value
+    },
+    setToken(value: string) {
+      this.accessToken = value
+    }
+  },
+  persist: {
+    enabled: true
   }
 })
 

@@ -3,7 +3,8 @@ module.exports = {
   globals: {
     /** 避免uni报错 */
     uni: true,
-    UniApp: true
+    UniApp: true,
+    wx: true
   },
   settings: {
     'import/resolver': {
