@@ -1,34 +1,48 @@
 <template>
   <view class="content">
-    value:{{ value }}
-
-    token:{{ token }}
-    <u-input type="text" v-model="value" />
-    <u-avatar :src="src"></u-avatar>
-    <u-button @click="login()">微信一键登录</u-button>
+    {{ nickName }}
+    <u-avatar :src="avatarUrl"></u-avatar>
+    <u-button @click="login()">微信登录</u-button>
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import useStore from '@/store'
 
+/**
+ * store里的数据
+ */
 const store = useStore()
 const { useUserStore } = store
-const src = '/static/logo.png'
-const value = ref('。。。')
-useUserStore.setToken('我累了')
-const token = useUserStore.getToken
-// token = ref(token)
-console.log(token)
-// methods 中新增方法
+const nickName = computed(() => useUserStore.getUserName) // 用户昵称
+const avatarUrl = computed(() => useUserStore.getAvatarUrl) // 用户头像
+
+/**
+ * 方法
+ */
+
+// 登录
 function login() {
   // 获取code小程序专有，用户登录凭证。
+  uni.login({
+    provider: 'weixin',
+    success: (res) => {
+      console.log(res)
+      if (res.errMsg === 'login:ok') {
+        console.log(`login:`, res)
+        useUserStore.updeteToken(res.code)
+      }
+    }
+  })
+  // 授权获取成功基本资料
   uni.getUserProfile({
     desc: '获取用户基本资料',
     success: (res) => {
-      // this.userInfo = res.userInfo
       console.log(`getUserProfile:`, res)
+      const { userInfo } = res
+      useUserStore.updeteAvatarUrl(userInfo.avatarUrl)
+      useUserStore.updeteUserName(userInfo.nickName)
     },
     // 用户取消登录后的提示
     fail: () => {
@@ -37,16 +51,6 @@ function login() {
         // 是否显示取消按钮，默认为true
         showCancel: false
       })
-    }
-  })
-  // 获取成功基本资料后开启登录，基本资料首先要授权
-  uni.login({
-    provider: 'weixin',
-    success: (res) => {
-      console.log(res)
-      if (res.errMsg === 'login:ok') {
-        console.log(`login:`, res)
-      }
     }
   })
 }
