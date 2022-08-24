@@ -1,9 +1,8 @@
 module.exports = {
-  // 增加uni的声明
   globals: {
-    /** 避免uni报错 */
     uni: true,
     UniApp: true,
+    plus: true,
     wx: true
   },
   settings: {

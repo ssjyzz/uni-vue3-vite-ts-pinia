@@ -2,16 +2,17 @@
  * @Author: Betty.Gao
  * @Date: 2022-07-08 18:30:46
  * @LastEditors: Betty.Gao
- * @LastEditTime: 2022-08-10 17:10:08
+ * @LastEditTime: 2022-08-24 15:32:41
  * @Description: vite配置文件
  */
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import { resolve } from 'path'
+import commonjs from '@rollup/plugin-commonjs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [uni()],
+  plugins: [commonjs(), uni()],
   envDir: resolve(__dirname, 'env'),
   resolve: {
     // 配置别名

@@ -2,8 +2,8 @@
  * @Author: Betty.Gao
  * @Date: 2022-08-18 11:21:35
  * @LastEditors: Betty.Gao
- * @LastEditTime: 2022-08-22 15:40:24
- * @Description: uers
+ * @LastEditTime: 2022-08-24 14:31:00
+ * @Description: 用户信息
  */
 import { defineStore } from 'pinia'
 
