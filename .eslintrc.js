@@ -1,3 +1,10 @@
+/*
+ * @Author: Betty.Gao
+ * @Date: 2022-08-09 16:25:38
+ * @LastEditors: Betty.Gao
+ * @LastEditTime: 2022-08-25 17:24:12
+ * @Description: eslint配置
+ */
 module.exports = {
   globals: {
     uni: true,
@@ -33,6 +40,7 @@ module.exports = {
     'no-console': 'off',
     'import/prefer-default-export': 'off',
     'vue/multi-word-component-names': 0,
+    camelcase: 'off',
     'prettier/prettier': [
       'error',
       {
